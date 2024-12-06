@@ -9,7 +9,7 @@ public class MyString {
         // System.out.println(MyString.subsetOf("c", "space"));
         // System.out.println("..." + MyString.spacedString("foobar") + "...");
         // System.out.println(MyString.randomStringOfLetters(3));
-        System.out.println(MyString.remove("train", "aretiin"));
+        System.out.println(MyString.remove("committee", "meet"));
         // Put more tests of your own here.
     }
 
@@ -105,9 +105,9 @@ public class MyString {
     public static String remove(String str1, String str2) {
         String result = "";
         String helper = "";
-        for (int i = 0; i < str2.length(); i++) {
-            char c = str2.charAt(i);
-            int totalToRemove = countChar(str1, c);
+        for (int i = 0; i < str1.length(); i++) {
+            char c = str1.charAt(i);
+            int totalToRemove = countChar(str2, c);
             int totalSkipped = countChar(helper, c);
             if (str2.indexOf(c) == -1 || totalSkipped == totalToRemove) {
                 result += c;

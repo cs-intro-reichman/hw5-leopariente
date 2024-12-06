@@ -124,7 +124,7 @@ public class Scrabble {
 				System.out.print(input + " earned " + currentWordScore + " points. ");
 				score += currentWordScore;
 				System.out.println("Score: " + score + " points");
-				HAND = MyString.remove(input, HAND);
+				HAND = MyString.remove(HAND, input);
 				HAND_SIZE -= input.length();
 			} else {
 				System.out.println("No such word in the dictionary. Try again.");
