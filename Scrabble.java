@@ -75,6 +75,13 @@ public class Scrabble {
 			int currentCharAscii = (int) word.charAt(i);
 			score += SCRABBLE_LETTER_VALUES[currentCharAscii - 97];
 		}
+		score *= word.length();
+		if (word.length() == HAND.length()) {
+			score += 50;
+		}
+		if (word.indexOf("runi") > -1) {
+			score += 1000;
+		}
 		return score;
 	}
 
@@ -121,7 +128,6 @@ public class Scrabble {
 			}
 		}
 		if (HAND.length() == 0) {
-			score += 50;
 			System.out.println("Ran out of letters. Total score: " + score + " points");
 		} else {
 			System.out.println("End of hand. Total score: " + score + " points");
