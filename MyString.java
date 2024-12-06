@@ -45,7 +45,8 @@ public class MyString {
      */
     public static boolean subsetOf(String str1, String str2) {
         for (int i = 0; i < str1.length(); i++) {
-            if (countChar(str2, str2.charAt(i)) != countChar(str1, str1.charAt(i))) {
+            char currentChar = str1.charAt(i);
+            if (countChar(str2, currentChar) != countChar(str1, currentChar)) {
                 return false;
             }
         }
