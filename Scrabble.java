@@ -43,6 +43,7 @@ public class Scrabble {
 		// to represent
 		// the stream of characters coming from the given file. Used for reading words
 		// from the file.
+		HAND_SIZE = 10;
 		In in = new In(WORDS_FILE);
 		System.out.println("Loading word list from file...");
 		NUM_OF_WORDS = 0;
@@ -79,9 +80,9 @@ public class Scrabble {
 		if (MyString.subsetOf("runi", word)) {
 			score += 1000;
 		}
-		if (HAND != null) {
-			HAND = word;
-			score += HAND.length() == word.length() ? 50 : 0;
+		if (word.length() == HAND_SIZE) {
+
+			score += 50;
 		}
 		return score;
 	}
@@ -124,6 +125,7 @@ public class Scrabble {
 				score += currentWordScore;
 				System.out.println("Score: " + score + " points");
 				HAND = MyString.remove(input, HAND);
+				HAND_SIZE -= input.length();
 			} else {
 				System.out.println("No such word in the dictionary. Try again.");
 			}
@@ -163,7 +165,7 @@ public class Scrabble {
 	public static void main(String[] args) {
 		//// Uncomment the test you want to run
 		////testBuildingTheDictionary();  
-		////testScrabbleScore();    
+		// testScrabbleScore();
 		////testCreateHands();  
 		////testPlayHands();
 		////playGame();
