@@ -127,7 +127,7 @@ public class Scrabble {
 				HAND = MyString.remove(HAND, input);
 				HAND_SIZE -= input.length();
 			} else {
-				System.out.println("No such word in the dictionary. Try again.");
+				System.out.println("Invalid word. Try again.");
 			}
 		}
 		if (HAND.length() == 0) {
