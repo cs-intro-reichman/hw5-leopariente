@@ -79,7 +79,7 @@ public class Scrabble {
 		if (MyString.subsetOf("runi", word)) {
 			score += 1000;
 		}
-		if (HAND.length() > 0) {
+		if (HAND != null) {
 			HAND = word;
 			score += HAND.length() == word.length() ? 50 : 0;
 		}
