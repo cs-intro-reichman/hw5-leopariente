@@ -92,7 +92,8 @@ public class Scrabble {
 	// 1. The letters in the word are removed from the hand, which becomes smaller.
 	// 2. The user gets the Scrabble points of the entered word.
 	// 3. The user is prompted to enter another word, or '.' to end the hand.
-	static void playHand() {
+	static void playHand(String hand) {
+		HAND = hand;
 		int n = HAND.length();
 		int score = 0;
 		// Declares the variable in to refer to an object of type In, and initializes it
@@ -145,8 +146,7 @@ public class Scrabble {
 			if (input.equals("e"))
 				break;
 			else if (input.equals("n")) {
-				HAND = createHand();
-				playHand();
+				playHand(createHand());
 			} else {
 				System.out.println("Please enter a valid character");
 			}
