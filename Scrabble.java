@@ -72,7 +72,7 @@ public class Scrabble {
 	public static int wordScore(String word) {
 		int score = 0;
 		for (int i = 0; i < word.length(); i++) {
-			int currentCharAscii = (int) word.charAt(i);
+			int currentCharAscii = (int) word.toLowerCase().charAt(i);
 			score += SCRABBLE_LETTER_VALUES[currentCharAscii - 97];
 		}
 		score *= word.length();
