@@ -32,8 +32,6 @@ public class Scrabble {
 	// Actual number of words in the dictionary (set by the init function, below)
 	static int NUM_OF_WORDS;
 
-	static String HAND;
-
 	// Populates the DICTIONARY array with the lowercase version of all the words
 	// read
 	// from the WORDS_FILE, and sets NUM_OF_WORDS to the number of words read from
@@ -81,7 +79,6 @@ public class Scrabble {
 			score += 1000;
 		}
 		if (word.length() == HAND_SIZE) {
-
 			score += 50;
 		}
 		return score;
@@ -102,8 +99,7 @@ public class Scrabble {
 	// 2. The user gets the Scrabble points of the entered word.
 	// 3. The user is prompted to enter another word, or '.' to end the hand.
 	static void playHand(String hand) {
-		HAND = hand;
-		int n = HAND.length();
+		int n = hand.length();
 		int score = 0;
 		// Declares the variable in to refer to an object of type In, and initializes it
 		// to represent
@@ -111,7 +107,7 @@ public class Scrabble {
 		// user's inputs.
 		In in = new In();
 		while (n > 0) {
-			System.out.println("Current Hand: " + MyString.spacedString(HAND));
+			System.out.println("Current Hand: " + MyString.spacedString(hand));
 			System.out.println("Enter a word, or '.' to finish playing this hand:");
 			// Reads the next "token" from the keyboard. A token is defined as a string of
 			// non-whitespace characters. Whitespace is either space characters, or
@@ -124,13 +120,12 @@ public class Scrabble {
 				System.out.print(input + " earned " + currentWordScore + " points. ");
 				score += currentWordScore;
 				System.out.println("Score: " + score + " points\n");
-				HAND = MyString.remove(HAND, input);
-				HAND_SIZE -= input.length();
+				hand = MyString.remove(hand, input);
 			} else {
 				System.out.println("Invalid word. Try again.");
 			}
 		}
-		if (HAND.length() == 0) {
+		if (hand.length() == 0) {
 			System.out.println("Ran out of letters. Total score: " + score + " points");
 		} else {
 			System.out.println("End of hand. Total score: " + score + " points");
